@@ -1,0 +1,10 @@
+com\digitalHouse\proyectoIntegrador\repository\IPacienteRepository.class
+com\digitalHouse\proyectoIntegrador\model\Domicilio.class
+com\digitalHouse\proyectoIntegrador\model\Turno.class
+com\digitalHouse\proyectoIntegrador\model\Odontologo.class
+com\digitalHouse\proyectoIntegrador\controller\PacienteController.class
+com\digitalHouse\proyectoIntegrador\service\IPacienteService.class
+com\digitalHouse\proyectoIntegrador\model\Paciente.class
+com\digitalHouse\proyectoIntegrador\model\PacienteDTO.class
+com\digitalHouse\proyectoIntegrador\service\PacienteService.class
+com\digitalHouse\proyectoIntegrador\ProyectoIntegradorApplication.class
