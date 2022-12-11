@@ -12,17 +12,16 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
-
     @Autowired
     IPacienteService pacienteService;
 
-    private static final Logger logger = Logger.getLogger("Capa Controller: " + PacienteController.class);
+    //private static final Logger logger = Logger.getLogger(PacienteController.class);
 
     @PostMapping
     public ResponseEntity<?> crearPaciente(@RequestBody PacienteDto pacienteDto){
-        logger.info("Inicia creacion de paciente");
+        //logger.info("Inicia creacion de paciente");
         pacienteService.crearPaciente(pacienteDto);
-        logger.info("Se creó un paciente exitosamente");
+        //logger.info("Se creó un paciente exitosamente");
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
@@ -39,22 +38,14 @@ public class PacienteController {
     @PutMapping
     public ResponseEntity<?> modificarPaciente(@RequestBody PacienteDto pacienteDto){
         pacienteService.modificarPaciente(pacienteDto);
-        logger.info("Se modificó al paciente "+pacienteDto.getNombre()+" "+pacienteDto.getApellido()+" exitosamente");
+        //logger.info("Se modificó al paciente "+pacienteDto.getNombre()+" "+pacienteDto.getApellido()+" exitosamente");
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarPaciente(@PathVariable Long id){
         pacienteService.eliminarPaciente(id);
-        logger.info("Se eliminó el paciente con id "+id);
+        //logger.info("Se eliminó el paciente con id "+id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
-
-//    public ResponseEntity<PacienteDTO> verificarCorreo(@PathVariable PacienteDTO pacienteDTO) {
-//        if (pacienteDTO.) {
-//            return new ResponseEntity<>("Formato debe ser: ejemplo@correo.dominio", HttpStatus.BAD_REQUEST);
-//        }
-//        return new ResponseEntity<>(pacienteDTO, HttpStatus.OK);
-//    }
-
 }

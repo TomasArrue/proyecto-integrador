@@ -17,7 +17,7 @@ public class Paciente {
     private Long id;
     private String nombre;
     private String apellido;
-    private String DNI;
+    private String dni;
 
     @OneToMany(mappedBy = "paciente")
     @JsonIgnore

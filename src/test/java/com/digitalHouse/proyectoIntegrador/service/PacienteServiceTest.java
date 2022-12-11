@@ -19,14 +19,14 @@ class PacienteServiceTest {
     @Order(1)
     public void testCrearPaciente(){
         PacienteDto pacienteDto = new PacienteDto();
-        pacienteDto.setId(666L);
-        pacienteDto.setNombre("Juan Carlos");
-        pacienteDto.setApellido("Perez");
-        pacienteDto.setDNI("41473521");
+        pacienteDto.setId(999L);
+        pacienteDto.setNombre("Pepe");
+        pacienteDto.setApellido("Gomez");
+        pacienteDto.setDni("1234567");
 
         pacienteService.crearPaciente(pacienteDto);
 
-        PacienteDto pacienteJuan = pacienteService.leerPaciente(666L);
+        PacienteDto pacienteJuan = pacienteService.leerPaciente(999L);
         assertTrue(pacienteJuan!= null);
     }
 
@@ -34,28 +34,28 @@ class PacienteServiceTest {
     @Order(2)
     public void testLeerPaciente(){
         PacienteDto pacienteDto = new PacienteDto();
-        pacienteDto = pacienteService.leerPaciente(666L);
+        pacienteDto = pacienteService.leerPaciente(999L);
         assertTrue(pacienteDto!= null);
     }
 
 
     @Test
     @Order(3)
-    public void testModificarPAciente(){
+    public void testModificarPaciente(){
         PacienteDto pacienteDto = new PacienteDto();
-        pacienteDto = pacienteService.leerPaciente(666L);
-        pacienteDto.setDNI("41473520");
+        pacienteDto = pacienteService.leerPaciente(999L);
+        pacienteDto.setDni("7654321");
         pacienteService.modificarPaciente(pacienteDto);
-        pacienteDto = pacienteService.leerPaciente(666L);
-        assertTrue(pacienteDto.getDNI() != "41473521");
+        pacienteDto = pacienteService.leerPaciente(999L);
+        assertTrue(pacienteDto.getDni() == "7654321");
     }
 
     @Test
     @Order(4)
-    public void testEliminarPAciente(){
+    public void testEliminarPaciente(){
         PacienteDto pacienteDto = new PacienteDto();
-        pacienteService.eliminarPaciente(666L);
-        pacienteDto = pacienteService.leerPaciente(666L);
+        pacienteService.eliminarPaciente(999L);
+        pacienteDto = pacienteService.leerPaciente(999L);
         assertNull(pacienteDto);
     }
 }

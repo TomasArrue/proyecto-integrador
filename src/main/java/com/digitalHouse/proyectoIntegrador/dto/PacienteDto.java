@@ -11,6 +11,6 @@ public class PacienteDto {
     private Long id;
     private String nombre;
     private String apellido;
-    private String DNI;
+    private String dni;
     private Domicilio domicilio;
 }

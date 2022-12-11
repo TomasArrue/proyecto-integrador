@@ -32,37 +32,33 @@ class TurnoServiceTest {
     @Order(1)
     public void testCrearTurno(){
         TurnoDto turnoDto = new TurnoDto();
-        turnoDto.setId(666L);
-        turnoDto.setFecha("30/03/2023");
-
+        turnoDto.setId(999L);
+        turnoDto.setFecha("25/12/2022");
 
         PacienteDto pacienteDto = new PacienteDto();
-        pacienteDto.setId(666L);
-        pacienteDto.setNombre("Juan Carlos");
-        pacienteDto.setApellido("Perez");
-        pacienteDto.setDNI("41473521");
+        pacienteDto.setId(999L);
+        pacienteDto.setNombre("Pepe");
+        pacienteDto.setApellido("Gomez");
+        pacienteDto.setDni("1234567");
 
         pacienteService.crearPaciente(pacienteDto);
-
-        pacienteDto =  pacienteService.leerPaciente(666L);
+        pacienteDto =  pacienteService.leerPaciente(999L);
         Paciente paciente = mapper.convertValue(pacienteDto, Paciente.class);
+
         turnoDto.setPaciente(paciente);
 
         OdontologoDto odontologoDto = new OdontologoDto();
-        odontologoDto.setId(666L);
-        odontologoDto.setNombre("Juan Carlos");
+        odontologoDto.setId(999L);
+        odontologoDto.setNombre("Antonio");
         odontologoDto.setApellido("Perez");
-        odontologoDto.setMatricula("555");
-
+        odontologoDto.setMatricula("MP12345");
         odontologoService.crearOdontologo(odontologoDto);
-
-        odontologoDto = odontologoService.leerOdontologo(666L);
+        odontologoDto = odontologoService.leerOdontologo(999L);
         Odontologo odontologo = mapper.convertValue(odontologoDto, Odontologo.class);
+
         turnoDto.setOdontologo(odontologo);
-
         turnoService.crearTurno(turnoDto);
-
-        TurnoDto turnoNuevo = turnoService.leerTurno(666L);
+        TurnoDto turnoNuevo = turnoService.leerTurno(999L);
         assertTrue(turnoNuevo!= null);
     }
 
@@ -70,7 +66,7 @@ class TurnoServiceTest {
     @Order(2)
     public void testLeerTurno(){
         TurnoDto turnoDto = new TurnoDto();
-        turnoDto = turnoService.leerTurno(666L);
+        turnoDto = turnoService.leerTurno(999L);
         assertTrue(turnoDto!= null);
     }
 
@@ -78,19 +74,19 @@ class TurnoServiceTest {
     @Order(3)
     public void testModificarTruno(){
         TurnoDto turnoDto = new TurnoDto();
-        turnoDto = turnoService.leerTurno(666L);
-        turnoDto.setFecha("30/03/2024");
+        turnoDto = turnoService.leerTurno(999L);
+        turnoDto.setFecha("31/12/2022");
         turnoService.modificarTurno(turnoDto);
-        turnoDto = turnoService.leerTurno(666L);
-        assertTrue(turnoDto.getFecha() != "30/03/2023");
+        turnoDto = turnoService.leerTurno(999L);
+        assertTrue(turnoDto.getFecha() == "31/12/2022");
     }
 
     @Test
     @Order(4)
     public void testEliminarTurno(){
         TurnoDto turnoDto = new TurnoDto();
-        turnoService.eliminarTurno(666L);
-        turnoDto = turnoService.leerTurno(666L);
+        turnoService.eliminarTurno(999L);
+        turnoDto = turnoService.leerTurno(999L);
         assertNull(turnoDto);
     }
 }

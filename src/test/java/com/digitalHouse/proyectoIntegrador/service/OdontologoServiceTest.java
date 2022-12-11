@@ -21,14 +21,14 @@ class OdontologoServiceTest {
     @Order(1)
     public void testCrearOdontologo(){
         OdontologoDto odontologoDto = new OdontologoDto();
-        odontologoDto.setId(666L);
-        odontologoDto.setNombre("Juan Carlos");
+        odontologoDto.setId(999L);
+        odontologoDto.setNombre("Antonio");
         odontologoDto.setApellido("Perez");
-        odontologoDto.setMatricula("555");
+        odontologoDto.setMatricula("MP12345");
 
         odontologoService.crearOdontologo(odontologoDto);
 
-        OdontologoDto odontologoJuan = odontologoService.leerOdontologo(666L);
+        OdontologoDto odontologoJuan = odontologoService.leerOdontologo(999L);
         assertTrue(odontologoJuan!= null);
     }
 
@@ -36,7 +36,7 @@ class OdontologoServiceTest {
     @Order(2)
     public void testLeerOdonotologo(){
         OdontologoDto odontologoDto = new OdontologoDto();
-        odontologoDto = odontologoService.leerOdontologo(666L);
+        odontologoDto = odontologoService.leerOdontologo(999L);
         assertTrue(odontologoDto!= null);
     }
 
@@ -45,19 +45,19 @@ class OdontologoServiceTest {
     @Order(3)
     public void testModificarOdontologo(){
         OdontologoDto odontologoDto = new OdontologoDto();
-        odontologoDto = odontologoService.leerOdontologo(666L);
-        odontologoDto.setMatricula("444");
+        odontologoDto = odontologoService.leerOdontologo(999L);
+        odontologoDto.setMatricula("MP54321");
         odontologoService.modificarOdontologo(odontologoDto);
-        odontologoDto = odontologoService.leerOdontologo(666L);
-        assertTrue(odontologoDto.getMatricula() != "555");
+        odontologoDto = odontologoService.leerOdontologo(999L);
+        assertTrue(odontologoDto.getMatricula() == "MP54321");
     }
 
     @Test
     @Order(4)
     public void testEliminarOdonotologo(){
         OdontologoDto odontologoDto = new OdontologoDto();
-        odontologoService.eliminarOdontologo(666L);
-        odontologoDto = odontologoService.leerOdontologo(666L);
+        odontologoService.eliminarOdontologo(999L);
+        odontologoDto = odontologoService.leerOdontologo(999L);
         assertNull(odontologoDto);
     }
 
